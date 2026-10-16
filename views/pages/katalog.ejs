@@ -1,0 +1,52 @@
+<%- include('../partials/header', { pageTitle: 'Sistem Absensi' }) %>
+
+<div class="card">
+  <h1>Daftar Kehadiran Absensi</h1>
+  <p>Berikut adalah daftar nama yang sudah melakukan presensi:</p>
+
+  <!-- Menampilkan Katalog/Daftar Data dengan Loop EJS -->
+  <% if (typeof produkList !== 'undefined' && produkList.length > 0) { %>
+    <ul>
+      <% produkList.forEach(item => { %>
+        <li>
+          <strong><%= item.nama %></strong> - Usia: <%= item.umur %> tahun - Status: <em><%= item.status %></em>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p><em>Belum ada data absensi yang masuk.</em></p>
+  <% } %>
+</div>
+
+<!-- Form Tambah Data dengan 3 Tipe Input (Teks, Angka, Dropdown) -->
+<div class="card" style="margin-top: 2rem;">
+  <h2>Form Presensi / Absensi</h2>
+  <form action="/katalog" method="POST">
+    
+    <!-- 1. Input Tipe Teks -->
+    <div style="margin-bottom: 1rem;">
+      <label for="namaProduk">Nama Lengkap (Teks):</label><br>
+      <input type="text" id="namaProduk" name="namaProduk" required placeholder="Masukkan nama..." style="padding: 8px; width: 100%; max-width: 300px; margin-top: 4px;">
+    </div>
+
+    <!-- 2. Input Tipe Angka (Number) -->
+    <div style="margin-bottom: 1rem;">
+      <label for="umurProduk">Usia (Angka):</label><br>
+      <input type="number" id="umurProduk" name="umurProduk" required placeholder="Masukkan usia..." style="padding: 8px; width: 100%; max-width: 300px; margin-top: 4px;">
+    </div>
+
+    <!-- 3. Input Tipe Dropdown (Select/Option) -->
+    <div style="margin-bottom: 1rem;">
+      <label for="statusHadir">Status Kehadiran (Dropdown):</label><br>
+      <select id="statusHadir" name="statusHadir" style="padding: 8px; width: 100%; max-width: 318px; margin-top: 4px;">
+        <option value="Hadir">Hadir</option>
+        <option value="Izin">Izin</option>
+        <option value="Sakit">Sakit</option>
+      </select>
+    </div>
+
+    <button type="submit" style="padding: 8px 16px; cursor: pointer;">Kirim Payload</button>
+  </form> 
+</div>
+
+<%- include('../partials/footer') %>
