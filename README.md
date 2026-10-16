@@ -2,13 +2,13 @@
 
 Proyek ini adalah aplikasi web Sistem Manajemen Absensi berbasis Express.js yang dibangun menggunakan pola arsitektur Model-View-Controller (MVC) untuk memenuhi tugas praktikum.
 
-## 🚀 Fitur Utama
+## Fitur Utama
 - **Beranda (Home)**: Menampilkan informasi umum sistem secara dinamis.
 - **Tentang Kami (About)**: Halaman informasi statis.
 - **Katalog Absensi**: Menampilkan daftar absensi dinamis menggunakan array of objects dan EJS looping.
 - **Form Tambah Data**: Mendukung input teks, angka, dan dropdown dengan alur POST-Redirect-Get (PRG).
 
-## 🛠️ Arsitektur Proyek
+## Arsitektur Proyek
 ```text
 ├── controllers/
 │   └── page.controller.js
